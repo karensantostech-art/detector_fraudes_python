@@ -98,10 +98,10 @@ Os resultados da análise com o limiar de 0.3 para a classe de fraude foram:
 
 | Modelo | Precisão | Recall | F1-score |
 --------------------------------------------------------
-Regressão Logística | 78,57% | 66,89% | 72,26%
-Random Forest | 63,16% | 81,08% | 71,01%
-Pipeline | 79,51% | 65,54% | 71,85%
-XGBoost | 90,70% | 79,05% | 84,48%
+Regressão Logística | 78,57% | 66,89% | 72,26%|
+Random Forest | 63,16% | 81,08% | 71,01%|
+Pipeline | 79,51% | 65,54% | 71,85%|
+XGBoost | 90,70% | 79,05% | 84,48%|
 --------------------------------------------------------
 
 Os resultados demonstraram diferenças no equilíbrio entre precisão e recall.
