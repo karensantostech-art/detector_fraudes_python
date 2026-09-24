@@ -4,7 +4,7 @@ Modelos treinados para detectar fraudes a partir de um dataset desbalanceado.
 
 # Detecção de Fraudes com Machine Learning
 
-Projeto desenvolvido como parte de um bootcamp de Ciência de Dados, com o objetivo de aplicar conceitos de análise de dados, preparação de dados e Machine Learning utilizando Python para identificar transações financeiras fraudulentas.
+Projeto desenvolvido como parte de um bootcamp da DIO de IA Generativa, Dados e Cybersegurança, com o objetivo de aplicar conceitos de análise de dados, preparação de dados e Machine Learning utilizando Python para identificar transações financeiras fraudulentas.
 
 ## Objetivo
 
@@ -12,7 +12,7 @@ O objetivo deste projeto é desenvolver e comparar modelos de classificação ca
 
 Um dos principais desafios desse problema é o **desbalanceamento das classes**: a grande maioria das transações é legítima, enquanto uma pequena parcela corresponde a fraudes.
 
-Nesse cenário, a acurácia, isoladamente, não é suficiente para avaliar o desempenho dos modelos. Um classificador poderia acertar quase todas as transações simplesmente prevendo que elas são legítimas, mas não conseguir identificar as fraudes.
+Nesse cenário, a acurácia, por si só, não é suficiente para avaliar o desempenho dos modelos. Um classificador poderia acertar quase todas as transações simplesmente prevendo que elas são legítimas, mas não conseguir identificar as fraudes, o que é um problema.
 
 Por isso, foram utilizadas métricas como precisão (Precision), recall e F1-score da classe de fraude, além da análise das curvas ROC e Precision-Recall.
 
@@ -26,7 +26,7 @@ Por isso, foram utilizadas métricas como precisão (Precision), recall e F1-sco
 - Imbalanced-learn
 - XGBoost
 - SHAP
-- Jupyter Notebook
+- Google Collab
 
 ## Conjunto de dados
 
@@ -36,12 +36,10 @@ Foi utilizado o conjunto de dados público de transações com cartões de créd
 
 O conjunto possui 31 colunas, incluindo variáveis anonimizadas, o valor da transação (`Amount`) e a variável-alvo (`Class`), que identifica transações legítimas (0) e fraudulentas (1).
 
-A distribuição observada foi:
+A distribuição observada (proporção) foi de:
 
-| Classe | Proporção |
-|---|---:|
-| Transações legítimas (0) | 99,83% |
-| Transações fraudulentas (1) | 0,17% |
+Transações legítimas (0) -> 99,83%
+Transações fraudulentas (1) -> 0,17% 
 
 ## Etapas do projeto
 
@@ -96,14 +94,15 @@ Também foram geradas curvas ROC e Precision-Recall para analisar o desempenho d
 
 Após o treinamento, foi realizada uma comparação com o limiar de decisão definido em 0,3, utilizando as probabilidades previstas por cada modelo.
 
-Os resultados para a classe de fraude foram:
+Os resultados da análise com o limiar de 0.3 para a classe de fraude foram:
 
 | Modelo | Precisão | Recall | F1-score |
-|---|---:|---:|---:|
-| Regressão Logística | 78,57% | 66,89% | 72,26% |
-| Random Forest | 63,16% | 81,08% | 71,01% |
-| Pipeline | 79,51% | 65,54% | 71,85% |
-| XGBoost | 90,70% | 79,05% | 84,48% |
+--------------------------------------------------------
+Regressão Logística | 78,57% | 66,89% | 72,26%
+Random Forest | 63,16% | 81,08% | 71,01%
+Pipeline | 79,51% | 65,54% | 71,85%
+XGBoost | 90,70% | 79,05% | 84,48%
+--------------------------------------------------------
 
 Os resultados demonstraram diferenças no equilíbrio entre precisão e recall.
 
@@ -157,9 +156,13 @@ Essa etapa foi incluída para complementar as métricas de desempenho com uma an
 
 **Alterações realizadas em relação à implementação da Expert:**
 
-> [Completar com as alterações que você efetivamente realizou em relação à implementação original da Expert.]
+> Em busca da convergência nos resultados das métricas dos modelos de Regressão Logística, o número máximo de iterações foi alterado de 1000 para 4500, já que 1000 iterações não era o suficiente para o treinamento completo dos modelos;
 
-Nesta seção, serão documentadas as modificações feitas durante o desenvolvimento do projeto, como eventuais mudanças na preparação dos dados, nos modelos, nas métricas de avaliação, no ajuste do limiar ou na interpretação dos resultados.
+> Também completei as informações de cada modelo por criar os gráficos da curva ROC e da relação precisão-recall, para os 4 modelos criados, incluindo na versão final do modelo XGBoost ajustado com o threshold 0.3, para a análise completa de cada um deles;
+
+> Enquanto a expert aplicou a mudança do valor threshold apenas no pipeline, decidi aplicar para os 4 modelos para a análise ficar mais completa; 
+
+> Para melhor visualização de algumas estatísticas os resultados de determinadas métricas foram multiplicados por 100 e apresentados em porcentagem, essa alteração foi aplicada, por exemplo, à distribuição das classes, ao valor da ROC-AUC e às métricas de precisão, recall e F1-score utilizadas na comparação dos modelos.
 
 ## Resultados e conclusões
 
@@ -174,10 +177,10 @@ A análise SHAP foi utilizada como ferramenta complementar para investigar a imp
 ## Estrutura do repositório
 
 ```text
-deteccao-fraudes/
+deteccao_fraudes_python/
 │
 ├── README.md
-└── deteccao_fraudes_atualizado.ipynb
+└── detecção de fraudes DIO Bootcamp.ipynb
 ```
 
 ## Como executar
@@ -191,6 +194,6 @@ O conjunto de dados é carregado diretamente da URL pública utilizada no notebo
 
 ## Observações
 
-Este é um projeto educacional desenvolvido no contexto de um bootcamp de Ciência de Dados.
+Este é um projeto educacional desenvolvido no contexto de um bootcamp da DIO de IA Generativa, Dados e Cybersegurança.
 
 Os resultados apresentados são experimentais e correspondem à implementação e às configurações registradas no notebook. Eles não representam uma validação para uso em sistemas financeiros reais.
